@@ -5,6 +5,7 @@ import br.com.luishmalafaia.santanderdevweek2023.domain.repository.UserRepositor
 import br.com.luishmalafaia.santanderdevweek2023.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -27,5 +28,10 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("This User ID already exists!");
         }
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }
